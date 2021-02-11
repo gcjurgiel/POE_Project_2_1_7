@@ -40,23 +40,10 @@ def path_open():
 def completed():
     return line_sensor.color == completion_color
 
-# Method to solve the maze by following the right wall.
-def solve_maze():
-    # Loop through checking for a path on all the sides.
-    while not completed():
-        # Turn to the right to check for the right wall.
-        turn_right()
-
-        # If there is a wall, turn left untill there is an opening .
-        while not path_open():
-            turn_left()
-
-        # Drive into the open path.
-        drive_one_unit()
-
 # main function
 def main():
-    solve_maze()
+    drive_one_unit()
+    turn_right()
 
 if __name__ == "__main__":
     main()
